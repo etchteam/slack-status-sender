@@ -16,7 +16,6 @@ describe('Get status', () => {
   });
   it('should get a status', async () => {
     return getStatus({ id: 'U2NK19J0L' }).then((data) => {
-      console.log(data);
       assert(data.user && data.user.statusEmoji && data.user.statusText);
     })
   });
