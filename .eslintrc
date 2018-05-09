@@ -2,10 +2,13 @@
   "parser": "babel-eslint",
   "extends": "airbnb",
   "env": {
+    "browser": true,
     "mocha": true
   },
   "rules": {
-    "comma-dangle": ["error", "only-multiline"]
+    "comma-dangle": ["error", "only-multiline"],
+    // A jsx extension is not required for files containing jsx
+    "react/jsx-filename-extension": 0,
   },
   "globals": {
     "fetch": false
