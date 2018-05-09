@@ -1,13 +1,5 @@
-// Object Only
-// React (should consume object only)
+import getStatus from './getStatus';
 
-const defaultAwesomeFunction = (name) => {
-  const returnStr = `I am the Default Awesome Function, fellow comrade! - ${name}`;
-  return returnStr;
+export default {
+  getStatus,
 };
-
-const awesomeFunction = () => 'I am just an Awesome Function';
-
-export default defaultAwesomeFunction;
-
-export { awesomeFunction };
