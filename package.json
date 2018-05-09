@@ -2,7 +2,7 @@
   "name": "statusify-plugin",
   "version": "0.0.1",
   "description":
-    "Plugin for 'Statusify' a service to display your Slack status on your website",
+    "React plugin for 'Statusify', a service to display your Slack status on your website",
   "main": "./lib/index.js",
   "scripts": {
     "start": "babel-node ./node_modules/.bin/webpack-dev-server",

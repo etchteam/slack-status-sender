@@ -1,37 +1,23 @@
-# NPM Module Boilerplate
+# Statusify - Plugin
 
-[![Build Status](https://travis-ci.org/flexdinesh/npm-module-boilerplate.svg?branch=master)](https://travis-ci.org/flexdinesh/npm-module-boilerplate) [![dependencies Status](https://david-dm.org/flexdinesh/npm-module-boilerplate/status.svg)](https://david-dm.org/flexdinesh/npm-module-boilerplate) [![devDependencies Status](https://david-dm.org/flexdinesh/npm-module-boilerplate/dev-status.svg)](https://david-dm.org/flexdinesh/npm-module-boilerplate?type=dev) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Known Vulnerabilities](https://snyk.io/test/github/etchteam/statusify-plugin/badge.svg)](https://snyk.io/test/github/etchteam/statusify-plugin)
+[![Build Status](https://travis-ci.org/etchteam/statusify-plugin.svg?branch=master)](https://travis-ci.org/etchteam/statusify-plugin)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/70e8177aa89f43ef997f71e70e4c9727)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=etchteam/statusify-plugin&utm_campaign=Badge_Grade)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-**Start developing your NPM module in seconds** ✨
-
-Readymade boilerplate setup with all the best practices to kick start your npm/node module development.
-
-Happy hacking =)
-
-# Features
-
-* **ES6/ESNext** - Write _ES6_ code and _Babel_ will transpile it to ES5 for backwards compatibility
-* **Test** - _Mocha_ with _Istanbul_ coverage
-* **Lint** - Preconfigured _ESlint_ with _Airbnb_ config
-* **CI** - _TravisCI_ configuration setup
-* **Minify** - Built code will be minified for performance
+React plugin for 'Statusify', a service to display your Slack status on your website
 
 # Commands
-- `npm run clean` - Remove `lib/` directory
-- `npm test` - Run tests with linting and coverage results.
-- `npm test:only` - Run tests without linting or coverage.
-- `npm test:watch` - You can even re-run tests on file changes!
-- `npm test:prod` - Run tests with minified code.
-- `npm run test:examples` - Test written examples on pure JS for better understanding module usage.
-- `npm run lint` - Run ESlint with airbnb-config
-- `npm run cover` - Get coverage report for your code.
-- `npm run build` - Babel will transpile ES6 => ES5 and minify the code.
-- `npm run prepublish` - Hook for npm. Do all the checks before publishing your module.
 
-# Installation
-Just clone this repo and remove `.git` folder.
+* `npm run clean` - Remove `lib/` directory
+* `npm test` - Run tests with linting and coverage results.
+* `npm test:only` - Run tests without linting or coverage.
+* `npm test:watch` - You can even re-run tests on file changes!
+* `npm test:prod` - Run tests with minified code.
+* `npm run test:examples` - Test written examples on pure JS for better understanding module usage.
+* `npm run lint` - Run ESlint with airbnb-config
+* `npm run cover` - Get coverage report for your code.
+* `npm run build` - Babel will transpile ES6 => ES5 and minify the code.
+* `npm run prepublish` - Hook for npm. Do all the checks before publishing your module.
 
-
-# License
-
-MIT © Dinesh Pandiyan
+Forked from [flexdinesh/npm-module-boilerplate](https://github.com/flexdinesh/npm-module-boilerplate)
