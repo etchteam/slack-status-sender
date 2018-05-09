@@ -21,7 +21,9 @@ export default class SlackStatus extends React.Component {
     const { data } = this.state;
 
     if (!data) {
-      return <div className="slack-status slack-status--loading">Loading...</div>;
+      return (
+        <div className="slack-status slack-status--loading">Loading...</div>
+      );
     }
 
     return (
