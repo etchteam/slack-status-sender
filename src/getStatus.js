@@ -11,10 +11,11 @@ function query({ id }) {
 }
 
 export default function getStatus({ id }) {
-  return fetch('https://slackout.etch.co', {
+  return fetch('https://example.org', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: query({ id }) }),
-  }).then(res => res.json())
+    body: JSON.stringify({ query: query({ id }) })
+  })
+    .then(res => res.json())
     .then(res => res.data);
 }
