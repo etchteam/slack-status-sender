@@ -6,7 +6,6 @@
     "mocha": true
   },
   "rules": {
-    "comma-dangle": ["error", "only-multiline"],
     "react/jsx-filename-extension": 0
   },
   "globals": {
