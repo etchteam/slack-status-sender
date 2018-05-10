@@ -1,7 +1,8 @@
 {
   "name": "statusify-plugin",
   "version": "0.0.1",
-  "description": "React plugin for 'Statusify', a service to display your Slack status on your website",
+  "description":
+    "React plugin for 'Statusify', a service to display your Slack status on your website",
   "main": "./lib/index.js",
   "scripts": {
     "start": "babel-node ./node_modules/.bin/webpack-dev-server",
@@ -10,26 +11,19 @@
       "mocha --require babel-core/register --require babel-polyfill --require ./test/testHelper.js --recursive && npm run lint",
     "test:prod": "cross-env BABEL_ENV=production npm run test",
     "test:watch": "npm test -- --watch",
-    "cover": "istanbul cover _mocha --report lcovonly -- --require babel-core/register --require babel-polyfill --require ./test/testHelper.js --recursive && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
+    "cover":
+      "istanbul cover _mocha --report lcovonly -- --require babel-core/register --require babel-polyfill --require ./test/testHelper.js --recursive && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
     "lint": "eslint src test",
     "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
-    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+    "prepublish":
+      "npm run clean && npm run lint && npm run test && npm run build"
   },
-  "files": [
-    "lib",
-    "src"
-  ],
+  "files": ["lib", "src"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/etchteam/statusify-plugin.git"
   },
-  "keywords": [
-    "boilerplate",
-    "npm",
-    "module",
-    "node",
-    "javascript"
-  ],
+  "keywords": ["boilerplate", "npm", "module", "node", "javascript"],
   "author": "Etch Software Ltd <hey@etch.co>",
   "license": "MIT",
   "bugs": {
