@@ -6,9 +6,9 @@
   "scripts": {
     "start": "babel-node ./node_modules/.bin/webpack-dev-server",
     "clean": "rimraf lib",
-    "test": "npm run lint && npm run cover",
+    "test":
+      "mocha --require babel-core/register --require babel-polyfill --require ./test/testHelper.js --recursive && npm run lint",
     "test:prod": "cross-env BABEL_ENV=production npm run test",
-    "test:only": "mocha --require babel-core/register --require babel-polyfill --require ./test/testHelper.js --recursive",
     "test:watch": "npm test -- --watch",
     "cover": "istanbul cover _mocha --report lcovonly -- --require babel-core/register --require babel-polyfill --require ./test/testHelper.js --recursive && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
     "lint": "eslint src test",

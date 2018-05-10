@@ -12,8 +12,7 @@ React plugin for 'Statusify', a service to display your Slack status on your web
 
 * `npm run start` - Run the demo via webpack dev server
 * `npm run clean` - Remove `lib/` directory
-* `npm test` - Run tests with linting and coverage results.
-* `npm test:only` - Run tests without linting or coverage.
+* `npm test` - Run tests with linting.
 * `npm test:watch` - You can even re-run tests on file changes!
 * `npm test:prod` - Run tests with minified code.
 * `npm run test:examples` - Test written examples on pure JS for better understanding module usage.
