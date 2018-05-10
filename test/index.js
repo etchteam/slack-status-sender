@@ -4,7 +4,7 @@ import getStatus from "../src/getStatus";
 
 describe("Get status", () => {
   before(() => {
-    fetchMock.post("https://example.org", {
+    fetchMock.post("https://slackout.etch.co", {
       data: {
         user: {
           statusText: "Scoping",

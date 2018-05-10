@@ -1,4 +1,6 @@
 // Get the users current status from the API.
+// Returns a promise, then the data.
+
 function query({ id }) {
   return `
     query {
@@ -11,7 +13,7 @@ function query({ id }) {
 }
 
 export default function getStatus({ id }) {
-  return fetch('https://example.org', {
+  return fetch('https://slackout.etch.co', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: query({ id }) }),

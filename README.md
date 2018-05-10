@@ -10,6 +10,7 @@ React plugin for 'Statusify', a service to display your Slack status on your web
 
 # Commands
 
+* `npm run start` - Run the demo via webpack dev server
 * `npm run clean` - Remove `lib/` directory
 * `npm test` - Run tests with linting and coverage results.
 * `npm test:only` - Run tests without linting or coverage.

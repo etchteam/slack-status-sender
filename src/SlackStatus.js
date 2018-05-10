@@ -1,3 +1,4 @@
+// A React Component for your slack status
 import React from 'react';
 import PropTypes from 'prop-types';
 import getStatus from './getStatus';
