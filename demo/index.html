@@ -2,18 +2,109 @@
 <html>
   <head>
     <title>Slack Status</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900" rel="stylesheet">
+    <style type="text/css">
+      html {
+        display: flex;
+        height: 100%;
+      }
+
+      body {
+        color: #224;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Nunito Sans', sans-serif;
+        margin: auto;
+        min-height: 100%;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      h1, h2 {
+        font-weight: 900;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      header {
+        background: #224;
+        color: #f66;
+        padding: 5%;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 12.5vw;
+        margin: 0;
+      }
+
+      header p {
+        color: #fff;
+        font-size: .875em;
+        margin: auto;
+        padding: 0;
+      }
+
+      main {
+        flex: 1 0 auto;
+        margin: auto;
+        max-width: 48em;
+        width: 100%;
+      }
+
+      section {
+        padding: 5%;
+      }
+
+      footer {
+        font-size: .875em;
+      }
+
+      footer svg {
+        height: auto;
+        vertical-align: text-top;
+        width: 3em;
+      }
+
+      @media all and (min-width: 48em) {
+        header h1 {
+          font-size: 6em;
+        }
+
+        header p {
+          font-size: 1em;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Slack Status</h1>
-
-    <h2>React component</h2>
-    <div id='app'></div>
-
-    <h2>Regular JS plugin</h2>
-    <div class="slack-status slack-status--loading" data-id="U2NK19J0L">
-      Loading...
-    </div>
-
+    <header>
+      <h1>Slackify</h1>
+      <p>Put your slack status on your website.</p>
+    </header>
+    <main>
+      <section>
+        <h2>React component</h2>
+        <div id='app'></div>
+      </section>
+      <section>
+        <h2>Regular JS plugin</h2>
+        <div class="slack-status slack-status--loading" data-id="U2NK19J0L">
+          Loading...
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Made by
+        <a href="https://etch.co" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 76 32" aria-labelledby="logo" role="img"><title id="logo">Etch</title><g class="logo__e"><path class="logo__e-t" fill="#F06" d="M0 4L0 20 16 4z"></path><path class="logo__e-b" fill="#F06" d="M0 12L0 28 16 28z"></path><path class="logo__e-m" fill="#F66" d="M0 12L0 28 16 12z"></path></g><g class="logo__t"><path class="logo__t-t" fill="#F06" d="M20 4H28V20H20z"></path><path class="logo__t-b" fill="#F06" d="M20 12L20 28 36 28z"></path><path class="logo__t-m" fill="#F66" d="M20 12L20 28 36 12z"></path></g><g class="logo__c"><path class="logo__c-b" fill="#F06" d="M40 12L40 28 56 28z"></path><path class="logo__c-m" fill="#F66" d="M40 12L40 28 56 12z"></path></g><g class="logo__h"><path class="logo__h-t" fill="#F06" d="M60 4H68V20H60z"></path><path class="logo__h-r" fill="#F06" d="M72 12L60 12 60 16 76 32 76 16z"></path><path class="logo__h-l" fill="#F66" d="M60 12L60 32 76 16 72 12z"></path></g></svg>
+        </a>
+      </p>
+    </footer>
     <script src='/bundle.js'></script>
   </body>
 </html>

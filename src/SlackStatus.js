@@ -28,9 +28,10 @@ export default class SlackStatus extends React.Component {
     }
 
     return (
-      <div className="slack-status">
-        <div className="slack-status__emoji">{data.user.statusEmoji}</div>
-        <p className="slack-status__text">{data.user.statusText}</p>
+      <div className="slack-status" style={{ display: 'inline-block' }}>
+        <div className="slack-status__emoji" style={{ display: 'inline-block' }}>{data.user.statusEmoji}</div>
+        {' '}
+        <p className="slack-status__text" style={{ display: 'inline-block' }}>{data.user.statusText}</p>
       </div>
     );
   }
