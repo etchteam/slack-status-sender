@@ -9,22 +9,30 @@ export default class SlackStatus extends React.Component {
 
     this.state = {
       data: null,
+      loading: true,
     };
   }
 
   componentDidMount() {
     const { id } = this.props;
     // Have to return this for testing
-    return getStatus({ id }).then(data => this.setState({ data }));
-    // @TODO Catch errors
+    return getStatus({ id })
+      .then(data => this.setState({ data, loading: false }))
+      .catch(() => this.setState({ loading: false }));
   }
 
   render() {
-    const { data } = this.state;
+    const { data, loading } = this.state;
 
-    if (!data) {
+    if (loading) {
       return (
         <div className="slack-status slack-status--loading">Loading...</div>
+      );
+    }
+
+    if (!data || (data && !data.user)) {
+      return (
+        <div className="slack-status slack-status--error">Failed to load status</div>
       );
     }
 
