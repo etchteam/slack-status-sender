@@ -1,7 +1,9 @@
 language: node_js
 script:
-  - npm run lint
-  - npm run cover
-  - npm run build
+- npm run lint
+- npm run cover
+- npm run build
 notifications:
   email: false
+  slack:
+    secure: NtRdYxDnCAjkHf1L0zfJwYL5v43qav+AiNC/IAfj99xKsW/UYL5QVvFbMRVhEzH7zXGpeXk2Gq25A/newRY9c5xExK0WIStenxdj5JzwJkgnhaRI+5zVC5cZB54H9pZvkL1/IQQdPkp6d4PXqtEzcwb4yisG0UR4na8fa8OkD8r0zficsJ65kJYd80258h27PbpKVPmat+JOdI4CbOtvRzNdulz8ZPfX/MQl94pMB2R3NrdcexXNZ+3NWPrKt1yqmQALyir8fJm9MjBn2x68PlemFl09jqSUthN0/C4k9wU+I1BjQ2KSSV9TIo/J4OG/0IsDPlr0UFwHjDSgaRDrOeH8UWNzDAYslR7Pe9QJt8PVmwfhksJ036LldRQQsasmnoZQjzkpKw/sBTZ7Jq1A8H9C4pBE+uWWVfj+iTNNa4oh/TkAFE+0fR4bqPmmsuShDviuh5vnSBJv50NHur23XBpHnqQQMJJCGfwrEql4Ot2tf4IFgVvZTbxJxyo30i52Vk6niSDhJQIezmwzxG17sdTsLhSDzGFKQcOlC9Jk6w1mA7dVA9eHUAZmn/HtWZDtdrfWLWI3ThA0jw6E7xKornNBIGte91QONwqdu2ddFIafryRnt7qFspe3cBOlP73Q3uVOP7e5+UVJy0WmNN7AefO7IVMu38+NUyW9WN3PuWA=
