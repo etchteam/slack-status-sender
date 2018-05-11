@@ -14,7 +14,8 @@ export default class SlackStatus extends React.Component {
 
   componentDidMount() {
     const { id } = this.props;
-    getStatus({ id }).then(data => this.setState({ data }));
+    // Have to return this for testing
+    return getStatus({ id }).then(data => this.setState({ data }));
     // @TODO Catch errors
   }
 
