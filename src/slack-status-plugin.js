@@ -4,6 +4,14 @@ import getStatus from './getStatus';
 function slackStatusInit() {
   const items = document.querySelectorAll('.slack-status');
 
+  const showErrorState = (item) => {
+    const errorText = 'Failed to load status';
+
+    item.innerHTML = errorText; // eslint-disable-line no-param-reassign
+    item.classList.remove('slack-status--loading');
+    item.classList.add('slack-status--error');
+  };
+
   if (items) {
     items.forEach((item) => {
       const id = item.getAttribute('data-id');
@@ -17,7 +25,11 @@ function slackStatusInit() {
 
           item.innerHTML = template; // eslint-disable-line no-param-reassign
           item.classList.remove('slack-status--loading');
+        } else {
+          showErrorState(item);
         }
+      }).catch(() => {
+        showErrorState(item);
       });
     });
   }
