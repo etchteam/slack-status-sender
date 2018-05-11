@@ -65,9 +65,8 @@ describe('Slack Status', () => {
     const result = renderer.getRenderOutput();
 
     expect(result.props.children).to.deep.equal([
-      <div className="slack-status__emoji" style={{ display: 'inline-block' }}>:simple_smile:</div>,
-      ' ',
-      <p className="slack-status__text" style={{ display: 'inline-block' }}>Making an awesome plugin</p>
+      <div className="slack-status__emoji">:simple_smile:</div>,
+      <p className="slack-status__text">Making an awesome plugin</p>
     ]);
   });
 
