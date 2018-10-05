@@ -1,6 +1,6 @@
 {
   "name": "slack-status-sender",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Your Slack status, sent to your site.",
   "author": "etchteam",
   "license": "MIT",
