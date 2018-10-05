@@ -21,11 +21,11 @@ function slackStatusPlugin() {
       getStatus({ userId: id, teamId, token }).then((data) => {
         if (data.status) {
           let template = `
-            <div className="slack-status-sender__emoji">${data.status.emoji}</div>
+            <div class="slack-status-sender__emoji">${data.status.emoji}</div>
           `
 
           if (data.status.content !== '') {
-            template += `<p className="slack-status-sender__text">${data.status.content}</p>`
+            template += `<p class="slack-status-sender__text">${data.status.content}</p>`
           }
 
           item.innerHTML = template // eslint-disable-line no-param-reassign
