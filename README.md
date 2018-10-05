@@ -15,12 +15,16 @@ npm install --save slack-status-sender
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'slack-status-sender'
+import { SlackStatus } from 'slack-status-sender'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <SlackStatus
+        teamId="YourTeamId"
+        userId="YourUserId"
+        token="YourAPIToken"
+      />
     )
   }
 }
