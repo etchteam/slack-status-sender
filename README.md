@@ -71,7 +71,7 @@ Then add this HTML where you would like to display slack statuses
 
 ## Support
 
-Official supports last two versions of Chrome, Firefox, Safari and Edge.
+Officially supports last two versions of Chrome, Firefox, Safari and Edge.
 Should work in Internet Explorer 11 if you polyfill fetch and promises.
 
 ## License
