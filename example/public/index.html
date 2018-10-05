@@ -3,23 +3,77 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#333399">
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
 
-    <title>slack-status-sender</title>
+    <title>Example | slack-status-sender</title>
 
     <meta name="statusify-team-id" content="T2NKF34F3" />
     <meta name="statusify-token" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJVMk5LMTlKMEwiLCJ0ZWFtSWQiOiJUMk5LRjM0RjMiLCJyb2xlIjoidmlld2VyIiwiaWF0IjoxNTM4NzI5NDcwfQ.xJNGL_mRtr1iqLHlYIWBq3U3v_tvOgMkMIrxbe7p8hw" />
     <script>
     !function(){"use strict";function e(){var t=document.querySelectorAll(".slack-status-sender"),u=document.querySelector('[name="statusify-team-id"]').getAttribute("content"),c=document.querySelector('[name="statusify-token"]').getAttribute("content"),i=function(t){t.innerHTML="Failed to load status",t.classList.remove("slack-status-sender--loading"),t.classList.add("slack-status-sender--error")};t&&[].concat(function(t){if(Array.isArray(t)){for(var e=0,n=Array(t.length);e<t.length;e++)n[e]=t[e];return n}return Array.from(t)}(t)).forEach(function(n){var t,e,s,a,r,o=n.getAttribute("data-id");(t={userId:o,teamId:u,token:c},s=t.userId,a=t.teamId,r=t.token,fetch("https://sender.etch.co/graphql",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+r},body:JSON.stringify({query:(e={userId:s,teamId:a},'\n    query {\n      status(userId: "'+e.userId+'", teamId: "'+e.teamId+'") {\n        content\n        emoji\n        emojiText\n      }\n    }\n  ')})}).then(function(t){return t.json()}).then(function(t){return t.data})).then(function(t){if(t.status){var e='\n            <div className="slack-status-sender__emoji">'+t.status.emoji+"</div>\n          ";""!==t.status.content&&(e+='<p className="slack-status-sender__text">'+t.status.content+"</p>"),n.innerHTML=e,n.classList.remove("slack-status-sender--loading")}else i(n)}).catch(function(){i(n)})})}document.addEventListener("DOMContentLoaded",function(t){e()})}();
     </script>
+    <style>
+      html {
+        background: #f6f6ff;
+        padding: 2.5%;
+      }
+      body {
+        background: #fff;
+        border-radius: 1vw;
+        box-shadow: 0 0 2.5vw rgba(0,0,0,.1);
+        color: #339;
+        font-family: sans-serif;
+        line-height: 1.5;
+        margin: 0 auto;
+        max-width: 40em;
+        min-width: 20em;
+        padding: 2.5% 5% 5%;
+      }
+      #logo {
+        width: 8em;
+      }
+      .slack-status-sender {
+      }
+      .slack-status-sender__label {
+        display: block;
+        font-size: .75em;
+        opacity: .5;
+      }
+      .slack-status-sender__emoji {
+        display: inline-block;
+      }
+      .slack-status-sender__text {
+        display: inline-block;
+      }
+      .slack-status-sender__text--no-status {
+        opacity: .5;
+      }
+    </style>
   </head>
 
   <body>
     <header>
+      <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 128">
+        <g>
+          <g>
+            <path fill="#F0E066" d="M43.435 55h9.196L67.982 4.576c1.182-3.87-.144-4.741-2.948-1.824L2.5 68.256C-.305 71.173.712 74 4.758 74h25.699l3.47-11.661C35.109 58.47 39.388 55 43.435 55z"/>
+            <path fill="#E69E0F" d="M78.332 55h-25.7l-3.471 11.662C47.979 70.528 43.701 74 39.654 74h-9.196l-15.351 49.753c-.699 2.286-.521 3.251.323 3.251.582 0 1.479-.697 2.624-1.886L80.591 60.18c2.804-2.917 1.787-5.18-2.259-5.18z"/>
+            <path fill="#EFCD00" d="M49.161 66.662L52.631 55h-9.196c-4.047 0-8.326 3.47-9.508 7.339L30.458 74h9.196c4.047 0 8.325-3.472 9.507-7.338z"/>
+          </g>
+          <g fill="#339">
+            <path d="M108.734 97.838c-4.3-.976-7.785-2.212-10.457-3.715-1.304-.843-2.296-1.901-2.98-3.174-.683-1.272-1.028-2.592-1.028-3.961 0-1.821.555-3.42 1.663-4.788s2.573-2.052 4.397-2.052c1.498 0 3.031.458 4.593 1.368 2.084 1.042 4.773 1.972 8.063 2.788 3.289.814 6.792 1.219 10.506 1.219 3.713 0 6.548-.488 8.501-1.461 1.956-.979 2.933-2.411 2.933-4.303 0-2.02-1.075-3.6-3.225-4.739-2.151-1.139-5.474-2.364-9.968-3.667-4.822-1.433-8.764-2.832-11.826-4.201-3.064-1.369-5.703-3.405-7.916-6.11-2.217-2.703-3.324-6.205-3.324-10.504 0-4.365 1.224-8.21 3.667-11.532 2.442-3.324 5.911-5.88 10.407-7.673 4.495-1.792 9.74-2.688 15.735-2.688 4.885 0 9.396.539 13.534 1.612 4.138 1.075 7.379 2.527 9.725 4.351 1.955 1.499 2.931 3.485 2.931 5.959 0 1.892-.602 3.536-1.807 4.936-1.207 1.401-2.753 2.102-4.642 2.102-1.629 0-3.191-.489-4.69-1.465-2.021-.979-4.399-1.842-7.135-2.591-2.735-.748-5.539-1.125-8.405-1.125-3.519 0-6.303.571-8.356 1.711-2.052 1.141-3.079 2.721-3.079 4.739 0 2.086 1.058 3.683 3.178 4.788 2.115 1.11 5.487 2.347 10.114 3.713 4.754 1.435 8.649 2.82 11.677 4.154 3.031 1.336 5.654 3.31 7.869 5.917 2.215 2.604 3.322 6.025 3.322 10.26 0 6.901-2.606 12.231-7.818 15.978-5.213 3.745-12.605 5.619-22.185 5.619-5.016.002-9.672-.488-13.974-1.465zM202.636 76.483c-.815.818-1.941 1.225-3.372 1.225h-25.508c.784 5.86 4.333 8.795 10.652 8.795 1.89 0 3.453-.18 4.69-.54 1.238-.358 2.868-.96 4.889-1.806 1.172-.521 2.18-.78 3.03-.78 1.432 0 2.555.55 3.37 1.658.816 1.11 1.223 2.446 1.223 4.006 0 1.372-.294 2.673-.88 3.912-.587 1.237-1.5 2.217-2.736 2.931-1.694.979-3.859 1.777-6.5 2.396-2.639.615-5.422.927-8.355.927-5.148 0-9.693-.975-13.634-2.929-3.944-1.955-7.005-4.708-9.187-8.264-2.184-3.546-3.275-7.698-3.275-12.457 0-5.015 1.061-9.528 3.178-13.537 2.115-4.005 5.063-7.149 8.844-9.43 3.778-2.28 8.016-3.422 12.705-3.422 6.972 0 12.396 2.102 16.272 6.306 3.876 4.201 5.815 10.084 5.815 17.642.001 1.434-.407 2.555-1.221 3.367zm-25.897-13.486c-1.402 1.403-2.331 3.568-2.786 6.502h15.539c-.066-2.803-.702-4.937-1.906-6.403-1.206-1.468-2.949-2.199-5.228-2.199-2.347 0-4.219.7-5.619 2.1zM255.405 53.713c2.736 3.03 4.104 7.476 4.104 13.341 0 1.437-.032 2.541-.096 3.321l-1.662 20.621c-.263 2.479-1.205 4.432-2.831 5.866-1.631 1.438-3.782 2.151-6.451 2.151-2.672 0-4.755-.734-6.255-2.201-1.498-1.466-2.119-3.405-1.855-5.816l1.661-20.034c.194-2.734-.246-4.835-1.32-6.304-1.073-1.465-2.752-2.198-5.033-2.198-2.543 0-4.51.832-5.911 2.492-1.403 1.659-2.202 3.896-2.397 6.694l-1.658 19.35c-.199 2.479-1.115 4.432-2.736 5.866-1.631 1.438-3.782 2.151-6.45 2.151-2.738 0-4.827-.714-6.259-2.151-1.432-1.435-2.084-3.387-1.953-5.866l2.737-33.716c.131-2.346 1.078-4.25 2.836-5.716 1.757-1.468 3.971-2.199 6.643-2.199 2.216 0 3.974.552 5.278 1.66 1.304 1.109 2.021 2.606 2.148 4.496 1.693-1.956 3.88-3.502 6.552-4.642 2.669-1.139 5.6-1.712 8.794-1.712 5.339 0 9.379 1.516 12.114 4.546zM318.641 31.235c1.526 1.465 2.23 3.373 2.1 5.718l-4.199 54.043c-.2 2.411-1.114 4.351-2.734 5.816-1.632 1.467-3.753 2.201-6.357 2.201-2.282 0-4.102-.573-5.471-1.709-1.367-1.142-2.187-2.657-2.44-4.55-1.567 2.088-3.573 3.683-6.014 4.792-2.442 1.105-5.197 1.659-8.262 1.659-4.039 0-7.605-.927-10.7-2.785-3.092-1.856-5.502-4.509-7.229-7.965-1.729-3.453-2.593-7.556-2.593-12.315 0-5.21.979-9.871 2.936-13.973 1.951-4.106 4.672-7.297 8.159-9.578 3.482-2.28 7.507-3.422 12.064-3.422 5.935 0 10.591 2.055 13.978 6.158l1.47-18.764c.125-2.214 1.024-4.022 2.688-5.423 1.661-1.4 3.761-2.103 6.299-2.103 2.669.001 4.768.735 6.305 2.2zm-20.375 51.65c1.692-2.347 2.535-5.407 2.535-9.186 0-3.841-.778-6.761-2.342-8.747-1.562-1.988-3.813-2.981-6.744-2.981-2.995 0-5.374 1.173-7.134 3.52-1.759 2.345-2.638 5.504-2.638 9.48 0 3.649.812 6.466 2.442 8.454 1.631 1.987 3.941 2.978 6.939 2.978 2.931 0 5.246-1.172 6.942-3.518zM368.099 76.483c-.815.818-1.941 1.225-3.374 1.225h-25.509c.787 5.86 4.335 8.795 10.657 8.795 1.886 0 3.452-.18 4.688-.54 1.237-.358 2.868-.96 4.888-1.806 1.172-.521 2.179-.78 3.03-.78 1.431 0 2.552.55 3.371 1.658.812 1.11 1.222 2.446 1.222 4.006 0 1.372-.295 2.673-.879 3.912-.589 1.237-1.503 2.217-2.737 2.931-1.694.979-3.859 1.777-6.501 2.396-2.636.615-5.419.927-8.354.927-5.146 0-9.696-.975-13.633-2.929-3.945-1.955-7.007-4.708-9.186-8.264-2.188-3.546-3.278-7.698-3.278-12.457 0-5.015 1.059-9.528 3.179-13.537 2.115-4.005 5.062-7.149 8.843-9.43 3.777-2.28 8.014-3.422 12.707-3.422 6.971 0 12.396 2.102 16.271 6.306 3.874 4.201 5.815 10.084 5.815 17.642 0 1.434-.404 2.555-1.22 3.367zm-25.9-13.486c-1.401 1.403-2.333 3.568-2.784 6.502h15.541c-.067-2.803-.704-4.937-1.91-6.403-1.203-1.468-2.949-2.199-5.227-2.199-2.344 0-4.22.7-5.62 2.1zM413.599 50.927c1.209 1.173 1.676 2.933 1.418 5.277-.258 2.606-1.046 4.496-2.346 5.669-1.305 1.173-3.582 1.922-6.84 2.249l-2.638.293c-3.649.458-6.16 1.387-7.528 2.786-1.368 1.4-2.215 3.761-2.54 7.086l-1.367 16.709c-.196 2.609-1.158 4.598-2.882 5.966-1.731 1.368-3.831 2.052-6.304 2.052-2.479 0-4.514-.684-6.109-2.052-1.599-1.368-2.3-3.356-2.099-5.966l2.734-33.716c.26-2.541 1.285-4.496 3.078-5.863 1.79-1.368 3.859-2.052 6.205-2.052 2.281 0 4.087.634 5.424 1.904 1.336 1.271 1.971 3.079 1.908 5.424 1.82-2.149 3.988-3.859 6.497-5.129 2.506-1.27 4.937-1.97 7.278-2.102l1.178-.097c2.084-.132 3.73.389 4.933 1.562z"/>
+          </g>
+        </g>
+      </svg>
+
       <h1>Slack Status Sender</h1>
-      <p>Put your slack status on your website.</p>
+      <p>Sender is a free Slack app that makes it quick and easy to display each team member’s status on your website.</p>
+      <ul>
+        <li><a href="https://sender.etch.co">App website</a></li>
+        <li><a href="https://github.com/etchteam/slack-status-sender">Plugin Repo</a></li>
+      </ul>
     </header>
     <main>
       <section>
@@ -28,18 +82,16 @@
       </section>
       <section>
         <h2>Regular JS plugin</h2>
+        <strong>Example Status</strong>
         <div class="slack-status-sender slack-status-sender--loading" data-id="U2NK19J0L">
           Loading...
         </div>
       </section>
     </main>
     <footer>
-      <p>
-        Made by
-        <a href="https://etch.co" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 76 32" aria-labelledby="logo" role="img"><title id="logo">Etch</title><g class="logo__e"><path class="logo__e-t" fill="#F06" d="M0 4L0 20 16 4z"></path><path class="logo__e-b" fill="#F06" d="M0 12L0 28 16 28z"></path><path class="logo__e-m" fill="#F66" d="M0 12L0 28 16 12z"></path></g><g class="logo__t"><path class="logo__t-t" fill="#F06" d="M20 4H28V20H20z"></path><path class="logo__t-b" fill="#F06" d="M20 12L20 28 36 28z"></path><path class="logo__t-m" fill="#F66" d="M20 12L20 28 36 12z"></path></g><g class="logo__c"><path class="logo__c-b" fill="#F06" d="M40 12L40 28 56 28z"></path><path class="logo__c-m" fill="#F66" d="M40 12L40 28 56 12z"></path></g><g class="logo__h"><path class="logo__h-t" fill="#F06" d="M60 4H68V20H60z"></path><path class="logo__h-r" fill="#F06" d="M72 12L60 12 60 16 76 32 76 16z"></path><path class="logo__h-l" fill="#F66" d="M60 12L60 32 76 16 72 12z"></path></g></svg>
-        </a>
-      </p>
+      <small>
+        Sender is a tiny software service by <a href="https://etch.co" target="_blank" rel="noopener noreferrer">Etch</a>
+      </small>
     </footer>
   </body>
 </html>
