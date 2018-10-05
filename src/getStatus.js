@@ -23,6 +23,6 @@ export default function getStatus({ userId, teamId, token }) {
     },
     body: JSON.stringify({ query: query({ userId, teamId }) })
   })
-    .then(res => res.json())
-    .then(res => res.data)
+    .then((res) => res.json())
+    .then((res) => res.data)
 }

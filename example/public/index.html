@@ -8,13 +8,38 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
 
     <title>slack-status-sender</title>
+
+    <meta name="statusify-team-id" content="T2NKF34F3" />
+    <meta name="statusify-token" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJVMk5LMTlKMEwiLCJ0ZWFtSWQiOiJUMk5LRjM0RjMiLCJyb2xlIjoidmlld2VyIiwiaWF0IjoxNTM4NzI5NDcwfQ.xJNGL_mRtr1iqLHlYIWBq3U3v_tvOgMkMIrxbe7p8hw" />
+    <script>
+    !function(){"use strict";function e(){var t=document.querySelectorAll(".slack-status-sender"),u=document.querySelector('[name="statusify-team-id"]').getAttribute("content"),c=document.querySelector('[name="statusify-token"]').getAttribute("content"),i=function(t){t.innerHTML="Failed to load status",t.classList.remove("slack-status-sender--loading"),t.classList.add("slack-status-sender--error")};t&&[].concat(function(t){if(Array.isArray(t)){for(var e=0,n=Array(t.length);e<t.length;e++)n[e]=t[e];return n}return Array.from(t)}(t)).forEach(function(n){var t,e,s,a,r,o=n.getAttribute("data-id");(t={userId:o,teamId:u,token:c},s=t.userId,a=t.teamId,r=t.token,fetch("https://sender.etch.co/graphql",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+r},body:JSON.stringify({query:(e={userId:s,teamId:a},'\n    query {\n      status(userId: "'+e.userId+'", teamId: "'+e.teamId+'") {\n        content\n        emoji\n        emojiText\n      }\n    }\n  ')})}).then(function(t){return t.json()}).then(function(t){return t.data})).then(function(t){if(t.status){var e='\n            <div className="slack-status-sender__emoji">'+t.status.emoji+"</div>\n          ";""!==t.status.content&&(e+='<p className="slack-status-sender__text">'+t.status.content+"</p>"),n.innerHTML=e,n.classList.remove("slack-status-sender--loading")}else i(n)}).catch(function(){i(n)})})}document.addEventListener("DOMContentLoaded",function(t){e()})}();
+    </script>
   </head>
 
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-
-    <div id="root"></div>
+    <header>
+      <h1>Slack Status Sender</h1>
+      <p>Put your slack status on your website.</p>
+    </header>
+    <main>
+      <section>
+        <h2>React component</h2>
+        <div id="root"></div>
+      </section>
+      <section>
+        <h2>Regular JS plugin</h2>
+        <div class="slack-status-sender slack-status-sender--loading" data-id="U2NK19J0L">
+          Loading...
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Made by
+        <a href="https://etch.co" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 76 32" aria-labelledby="logo" role="img"><title id="logo">Etch</title><g class="logo__e"><path class="logo__e-t" fill="#F06" d="M0 4L0 20 16 4z"></path><path class="logo__e-b" fill="#F06" d="M0 12L0 28 16 28z"></path><path class="logo__e-m" fill="#F66" d="M0 12L0 28 16 12z"></path></g><g class="logo__t"><path class="logo__t-t" fill="#F06" d="M20 4H28V20H20z"></path><path class="logo__t-b" fill="#F06" d="M20 12L20 28 36 28z"></path><path class="logo__t-m" fill="#F66" d="M20 12L20 28 36 12z"></path></g><g class="logo__c"><path class="logo__c-b" fill="#F06" d="M40 12L40 28 56 28z"></path><path class="logo__c-m" fill="#F66" d="M40 12L40 28 56 12z"></path></g><g class="logo__h"><path class="logo__h-t" fill="#F06" d="M60 4H68V20H60z"></path><path class="logo__h-r" fill="#F06" d="M72 12L60 12 60 16 76 32 76 16z"></path><path class="logo__h-l" fill="#F66" d="M60 12L60 32 76 16 72 12z"></path></g></svg>
+        </a>
+      </p>
+    </footer>
   </body>
 </html>

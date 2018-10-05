@@ -1,8 +1,8 @@
 // Generic plugin to get the react status and put it into divs on the page.
 import getStatus from './getStatus'
 
-function slackStatusInit() {
-  const items = document.querySelectorAll('.slack-status')
+function slackStatusPlugin() {
+  const items = document.querySelectorAll('.slack-status-sender')
   const teamId = document.querySelector('[name="statusify-team-id"]').getAttribute('content')
   const token = document.querySelector('[name="statusify-token"]').getAttribute('content')
 
@@ -10,26 +10,26 @@ function slackStatusInit() {
     const errorText = 'Failed to load status'
 
     item.innerHTML = errorText // eslint-disable-line no-param-reassign
-    item.classList.remove('slack-status--loading')
-    item.classList.add('slack-status--error')
+    item.classList.remove('slack-status-sender--loading')
+    item.classList.add('slack-status-sender--error')
   }
 
   if (items) {
-    items.forEach((item) => {
+    [...items].forEach((item) => {
       const id = item.getAttribute('data-id')
 
       getStatus({ userId: id, teamId, token }).then((data) => {
-        if (data.user) {
+        if (data.status) {
           let template = `
-            <div className="slack-status__emoji">${data.user.statusEmoji}</div>
+            <div className="slack-status-sender__emoji">${data.status.emoji}</div>
           `
 
-          if (data.user.statusText !== '') {
-            template += `<p className="slack-status__text">${data.user.statusText}</p>`
+          if (data.status.content !== '') {
+            template += `<p className="slack-status-sender__text">${data.status.content}</p>`
           }
 
           item.innerHTML = template // eslint-disable-line no-param-reassign
-          item.classList.remove('slack-status--loading')
+          item.classList.remove('slack-status-sender--loading')
         } else {
           showErrorState(item)
         }
@@ -40,4 +40,6 @@ function slackStatusInit() {
   }
 }
 
-slackStatusInit()
+document.addEventListener('DOMContentLoaded', function(event) {
+  slackStatusPlugin()
+})
