@@ -8,7 +8,6 @@ export default class App extends Component {
   render () {
     return (
       <div>
-        <h1>Slack Status Sender</h1>
         <StatusSender
           token={token}
           userId='U2NK19J0L'
