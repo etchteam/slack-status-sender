@@ -2,34 +2,44 @@
 import getStatus from './getStatus'
 
 function slackStatusPlugin() {
-  const items = document.querySelectorAll('.slack-status-sender')
-  const teamId = document.querySelector('[name="statusify-team-id"]').getAttribute('content')
-  const token = document.querySelector('[name="statusify-token"]').getAttribute('content')
+  const items = document.querySelectorAll('.status-sender')
+  const teamId = document.querySelector('[name="status-sender-team-id"]').getAttribute('content')
+  const token = document.querySelector('[name="status-sender-token"]').getAttribute('content')
 
   const showErrorState = (item) => {
     const errorText = 'Failed to load status'
 
     item.innerHTML = errorText // eslint-disable-line no-param-reassign
-    item.classList.remove('slack-status-sender--loading')
-    item.classList.add('slack-status-sender--error')
+    item.classList.remove('status-sender--loading')
+    item.classList.add('status-sender--error')
   }
 
   if (items) {
     [...items].forEach((item) => {
       const id = item.getAttribute('data-id')
+      const placeholder = item.getAttribute('data-placeholder')
 
       getStatus({ userId: id, teamId, token }).then((data) => {
         if (data.status) {
+          const { status: { emoji, content } } = data
+          const noEmoji = emoji === '' || !emoji
+          const noContent = content === '' || !content
+          const noStatus = noEmoji && noContent
+
           let template = `
-            <div class="slack-status-sender__emoji">${data.status.emoji}</div>
+            <span class="status-sender__emoji">${data.status.emoji || '◯'}</span>
           `
 
           if (data.status.content !== '') {
-            template += `<p class="slack-status-sender__text">${data.status.content}</p>`
+            template += `<span class="status-sender__text">${data.status.content}</span>`
+          }
+
+          if (noStatus) {
+            template += `<span className='status-sender__placeholder'>${placeholder || 'No status'}</span>`
           }
 
           item.innerHTML = template // eslint-disable-line no-param-reassign
-          item.classList.remove('slack-status-sender--loading')
+          item.classList.remove('status-sender--loading')
         } else {
           showErrorState(item)
         }

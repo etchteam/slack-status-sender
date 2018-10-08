@@ -1,7 +1,7 @@
-import { SlackStatus } from './'
+import { StatusSender } from './'
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(SlackStatus).toBeTruthy()
+    expect(StatusSender).toBeTruthy()
   })
 })

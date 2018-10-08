@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#333399">
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="stylesheet" href="%PUBLIC_URL%/styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/styles.css">
 
     <title>Example | slack-status-sender</title>
 
+    <meta name="status-sender-team-id" content="T2NKF34F3" />
+    <meta name="status-sender-token" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJVMk5LMTlKMEwiLCJ0ZWFtSWQiOiJUMk5LRjM0RjMiLCJyb2xlIjoidmlld2VyIiwiaWF0IjoxNTM4NzI5NDcwfQ.xJNGL_mRtr1iqLHlYIWBq3U3v_tvOgMkMIrxbe7p8hw" />
+    <script>
+    !function(){"use strict";function e(){var t=document.querySelectorAll(".status-sender"),d=document.querySelector('[name="status-sender-team-id"]').getAttribute("content"),c=document.querySelector('[name="status-sender-token"]').getAttribute("content"),i=function(t){t.innerHTML="Failed to load status",t.classList.remove("status-sender--loading"),t.classList.add("status-sender--error")};t&&[].concat(function(t){if(Array.isArray(t)){for(var e=0,n=Array(t.length);e<t.length;e++)n[e]=t[e];return n}return Array.from(t)}(t)).forEach(function(o){var t,e,n,s,a,r=o.getAttribute("data-id"),u=o.getAttribute("data-placeholder");(t={userId:r,teamId:d,token:c},n=t.userId,s=t.teamId,a=t.token,fetch("https://sender.etch.co/graphql",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+a},body:JSON.stringify({query:(e={userId:n,teamId:s},'\n    query {\n      status(userId: "'+e.userId+'", teamId: "'+e.teamId+'") {\n        content\n        emoji\n        emojiText\n      }\n    }\n  ')})}).then(function(t){return t.json()}).then(function(t){return t.data})).then(function(t){if(t.status){var e=t.status,n=e.emoji,s=e.content,a=(""===n||!n)&&(""===s||!s),r='\n            <span class="status-sender__emoji">'+(t.status.emoji||"◯")+"</span>\n          ";""!==t.status.content&&(r+='<span class="status-sender__text">'+t.status.content+"</span>"),a&&(r+="<span className='status-sender__placeholder'>"+(u||"No status")+"</span>"),o.innerHTML=r,o.classList.remove("status-sender--loading")}else i(o)}).catch(function(){i(o)})})}document.addEventListener("DOMContentLoaded",function(t){e()})}();
+    </script>
   </head>
 
   <body>
@@ -30,15 +35,18 @@
       <h1>Slack Status Sender</h1>
       <p>Sender is a free Slack app that makes it quick and easy to display each team member’s status on your website.</p>
       <ul>
-        <li><a href="/plugin.html">Plugin example</a></li>
+        <li><a href="/">React example</a></li>
         <li><a href="https://sender.etch.co">App website</a></li>
         <li><a href="https://github.com/etchteam/slack-status-sender">Plugin Repo</a></li>
       </ul>
     </header>
     <main>
       <section>
-        <h2>React component</h2>
-        <div id="root"></div>
+        <h2>Regular JS plugin</h2>
+        <strong>Example Status</strong>
+        <div class="status-sender status-sender--loading" data-id="U2NK19J0L">
+          Loading...
+        </div>
       </section>
     </main>
     <footer>

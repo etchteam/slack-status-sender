@@ -1,0 +1,35 @@
+html {
+  background: #f6f6ff;
+  padding: 2.5%;
+}
+body {
+  background: #fff;
+  border-radius: 1vw;
+  box-shadow: 0 0 2.5vw rgba(0,0,0,.1);
+  color: #339;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 40em;
+  min-width: 20em;
+  padding: 2.5% 5% 5%;
+}
+#logo {
+  width: 8em;
+}
+.slack-status-sender {
+}
+.slack-status-sender__label {
+  display: block;
+  font-size: .75em;
+  opacity: .5;
+}
+.slack-status-sender__emoji {
+  display: inline-block;
+}
+.slack-status-sender__text {
+  display: inline-block;
+}
+.slack-status-sender__text--no-status {
+  opacity: .5;
+}
