@@ -2,7 +2,10 @@
 
 > Your Slack status, sent to your site.
 
-[![NPM](https://img.shields.io/npm/v/slack-status-sender.svg)](https://www.npmjs.com/package/slack-status-sender) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d27c3c392c314fbcb8cb6ea9ce052fa0)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=etchteam/slack-status-sender&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.com/etchteam/slack-status-sender.svg?token=Keq3sENfwYStLzCYujxz&branch=master)](https://travis-ci.com/etchteam/slack-status-sender)
+[![NPM](https://img.shields.io/npm/v/slack-status-sender.svg)](https://www.npmjs.com/package/slack-status-sender)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
