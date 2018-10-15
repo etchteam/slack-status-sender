@@ -13,6 +13,12 @@
 npm install --save slack-status-sender
 ```
 
+or
+
+```bash
+yarn add slack-status-sender
+```
+
 ## Usage
 
 ### Javascript function
