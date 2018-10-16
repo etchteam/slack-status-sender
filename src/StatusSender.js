@@ -20,7 +20,6 @@ export default class StatusSender extends React.Component {
     return getStatus({ userId, teamId, token })
       .then(data => this.setState({ data, loading: false, error: null }))
       .catch(error => {
-        console.log('catch')
         this.setState({ loading: false, error })
       })
   }
@@ -36,10 +35,13 @@ export default class StatusSender extends React.Component {
     }
 
     if (!data || (data && !data.status)) {
-      console.error(error)
       return (
         <div className='status-sender status-sender--error'>Failed to load status</div>
       )
+    }
+
+    if (error) {
+      // todo: Add error handling
     }
 
     const { data: { status: { emoji, content } } } = this.state
